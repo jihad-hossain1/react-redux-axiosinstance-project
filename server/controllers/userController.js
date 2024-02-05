@@ -1,5 +1,18 @@
 const User = require("../models/user.models");
 
+const getAllUser = async (req, res) => {
+  try {
+    const users = await User.find({});
+    return res
+      .status(201)
+      .json({ message: "users data fetch successfull", users: users });
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ message: "all user data are not fetch, ", error: error });
+  }
+};
+
 const registerUser = async (req, res) => {
   const { username, email, password, fullname } = req.body;
 
@@ -47,4 +60,4 @@ const registerUser = async (req, res) => {
   }
 };
 
-module.exports = { registerUser };
+module.exports = { registerUser, getAllUser };
