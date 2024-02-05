@@ -16,8 +16,9 @@ app.use(express.urlencoded({ extended: true, limit: "16kn" }));
 app.use(express.static("public"));
 app.use(cookieParser());
 
-app.use("/api/v1/users", (req, res) => {
-  return res.json({ message: "hello world" });
-});
+// route importer
+const userRoute = require("./router/user.router");
+
+app.use("/api/v1/users", userRoute);
 
 module.exports = app;
