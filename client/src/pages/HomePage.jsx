@@ -13,8 +13,14 @@ const HomePage = () => {
     fetchData();
   }, []);
 
-  console.log(users);
-  return <div>HomePage</div>;
+  console.log(users?.users);
+  return (
+    <div>
+      {users?.users?.map((user) => (
+        <li key={user?._id}>{user?.username}</li>
+      ))}
+    </div>
+  );
 };
 
 export default HomePage;
