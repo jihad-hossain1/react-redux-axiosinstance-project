@@ -133,4 +133,10 @@ const loginUser = async (req, res) => {
   }
 };
 
-module.exports = { registerUser, getAllUser, loginUser };
+const getCurrentUser = async (req, res) => {
+  return res
+    .status(200)
+    .json({ user: req.user, message: "current user fetched successfully" });
+};
+
+module.exports = { registerUser, getAllUser, loginUser, getCurrentUser };
