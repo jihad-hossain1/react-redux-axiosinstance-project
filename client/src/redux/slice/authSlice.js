@@ -9,19 +9,13 @@ const initialState = {
 };
 
 export const createAccount = createAsyncThunk("register", async (data) => {
-  const formData = new FormData();
-  formData.append("username", data.username);
-  formData.append("email", data.email);
-  formData.append("password", data.password);
-  formData.append("fullname", data.fullname);
-
   try {
-    const response = await axiosInstance.post("/users/register", formData);
-    console.log(response.data);
+    const response = await axiosInstance.post("/users/register", data);
     toast.success("Registered successfully!!!");
     return response.data;
   } catch (error) {
-    toast.error(error?.response?.data?.error);
+    toast.error(error?.response?.data?.message);
+    console.log(error);
     throw error;
   }
 });
@@ -32,7 +26,7 @@ export const userLogin = createAsyncThunk("login", async (data) => {
     console.log(response?.data);
     return response?.data?.data?.user;
   } catch (error) {
-    toast.error(error?.response?.data?.error);
+    toast.error(error?.response?.data?.message);
     throw error;
   }
 });
@@ -76,6 +70,7 @@ export const changePassword = createAsyncThunk(
 
 export const getCurrentUser = createAsyncThunk("getCurrentUser", async () => {
   const response = await axiosInstance.get("/users/current-user");
+  console.log(response.data);
   return response.data.data;
 });
 

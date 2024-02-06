@@ -6,6 +6,7 @@ import { Toaster } from "react-hot-toast";
 import Login from "./pages/authentication/Login";
 import { getCurrentUser } from "./redux/slice/authSlice";
 import { useDispatch } from "react-redux";
+import Register from "./pages/authentication/Register";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
         </Route>
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
       <Toaster
         position="top-right"

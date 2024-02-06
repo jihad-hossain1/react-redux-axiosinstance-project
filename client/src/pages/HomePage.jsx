@@ -1,24 +1,17 @@
-import { useEffect, useState } from "react";
-
+import { useSelector } from "react-redux";
 const HomePage = () => {
-  const [users, setUsers] = useState([]);
+  const user = useSelector((state) => state.auth?.userData);
 
-  useEffect(() => {
-    let fetchData = async () => {
-      return await fetch("https://api-secure.vercel.app/api/v1/users/allusers")
-        .then((res) => res.json())
-        .then((result) => setUsers(result));
-    };
-
-    fetchData();
-  }, []);
-
-  console.log(users?.users);
+  console.log(user);
   return (
     <div>
-      {users?.users?.map((user) => (
-        <li key={user?._id}>{user?.username}</li>
-      ))}
+      {user ? (
+        <ul>
+          <li>abc</li>
+        </ul>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

@@ -42,31 +42,25 @@ const Login = () => {
           style={{ padding: "9px" }}
           placeholder="username"
           type="text"
-          name=""
           value={username}
           onChange={(e) => setusername(e.target.value)}
-          id=""
         />
         <input
           style={{ padding: "9px" }}
           placeholder="email"
           value={email}
           type="text"
-          name=""
           onChange={(e) => setemail(e.target.value)}
-          id=""
         />
         <input
           style={{ padding: "9px" }}
           placeholder="password"
           value={password}
           type="text"
-          name=""
           onChange={(e) => setpassword(e.target.value)}
-          id=""
         />
 
-        <button type="submit">Login</button>
+        <button type="submit">{loading ? "loading..." : "Login"}</button>
       </form>
     </div>
   );
