@@ -6,6 +6,8 @@ import toast from "react-hot-toast";
 const Login = () => {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.auth?.loading);
+  const user = useSelector((state) => state.auth?.userData);
+
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
   const [email, setemail] = useState("");
@@ -24,6 +26,8 @@ const Login = () => {
       toast.success("login successfull ");
     }
   };
+
+  console.log("after login user info: ", user);
   return (
     <div>
       Login

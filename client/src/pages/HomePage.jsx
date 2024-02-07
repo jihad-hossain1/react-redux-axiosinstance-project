@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 const HomePage = () => {
   const user = useSelector((state) => state.auth?.userData);
 
-  console.log(user);
+  // console.log(user);
   return (
     <div>
       {user ? (
