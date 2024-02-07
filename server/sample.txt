@@ -1,0 +1,8 @@
+CORS_ORIGIN=http://localhost:5173
+# CORS_ORIGIN=https://api-secure-client.vercel.app
+PORT=9000
+MONGODB_URI=mongodb+srv://love:dose@cluster0.8rkw6sl.mongodb.net
+ACCESS_TOKEN_SECRET=jihad
+ACCESS_TOKEN_EXPIRY=5m
+REFRESH_TOKEN_SECRET=hossain
+REFRESH_TOKEN_EXPIRY=2m
