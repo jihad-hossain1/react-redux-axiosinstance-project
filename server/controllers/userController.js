@@ -84,7 +84,7 @@ const loginUser = async (req, res) => {
     if (!(username || email)) {
       return res
         .status(400)
-        .jsonj({ message: "username or email is required." });
+        .json({ message: "username or email is required." });
     }
 
     const user = await User.findOne({
@@ -110,10 +110,13 @@ const loginUser = async (req, res) => {
     const loggedInUser = await User.findById(user._id).select(
       " -password -refreshToken"
     );
-
+    // for developmen uncomment this
+    // const options = {
+    //   httpOnly: true,
+    //   secure: true,
+    // };
+    // for deployment uncomment this
     const options = {
-      // httpOnly: true,
-      // secure: true,
       httpOnly: false,
       sameSite: "none",
       secure: true,
