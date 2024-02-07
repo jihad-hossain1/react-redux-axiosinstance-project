@@ -135,9 +135,7 @@ const loginUser = async (req, res) => {
 
 const getCurrentUser = async (req, res) => {
   console.log(req.user);
-  return res
-    .status(200)
-    .json({ user: req.user, message: "current user fetched successfully" });
+  return res.status(200).json(req.user);
 };
 
 module.exports = { registerUser, getAllUser, loginUser, getCurrentUser };

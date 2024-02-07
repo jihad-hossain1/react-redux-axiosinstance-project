@@ -70,8 +70,8 @@ export const changePassword = createAsyncThunk(
 
 export const getCurrentUser = createAsyncThunk("getCurrentUser", async () => {
   const response = await axiosInstance.get("/users/current-user");
-  console.log("response from auth slice: ", response);
-  return response.data.data;
+  console.log("response from auth slice: ", response.data);
+  return response.data;
 });
 
 const authSlice = createSlice({
