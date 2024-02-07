@@ -112,7 +112,10 @@ const loginUser = async (req, res) => {
     );
 
     const options = {
-      httpOnly: true,
+      // httpOnly: true,
+      // secure: true,
+      httpOnly: false,
+      sameSite: "none",
       secure: true,
     };
 
