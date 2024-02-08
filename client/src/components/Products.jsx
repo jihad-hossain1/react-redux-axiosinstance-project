@@ -1,12 +1,18 @@
 import { useGetAllProductsQuery } from "../redux/api/productApi";
 
+const container = {
+  display: "flex",
+  flexDirection: "column",
+  justifyItems: "center",
+};
+
 const Products = () => {
   const { data, isError, isLoading, error } = useGetAllProductsQuery() || {};
 
   return (
     <div style={{ border: "solid 1px red" }}>
       <h4>Products</h4>
-      <div style={{ display: "flex", justifyItems: "center" }}>
+      <div style={container}>
         {isLoading ? (
           <p>Loading....</p>
         ) : isError ? (
