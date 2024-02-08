@@ -5,13 +5,13 @@ const HomePage = () => {
 
   // console.log(user);
   return (
-    <div>
+    <div style={{ padding: "10px" }}>
       {user ? (
         <ul>
           <li>abc</li>
         </ul>
       ) : (
-        ""
+        <p>No user data here. login then able see All users information.</p>
       )}
 
       <Products />

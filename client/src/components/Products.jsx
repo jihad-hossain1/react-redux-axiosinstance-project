@@ -1,17 +1,12 @@
-import React from "react";
-import {
-  useAddProductMutation,
-  useGetAllProductsQuery,
-} from "../redux/api/productApi";
+import { useGetAllProductsQuery } from "../redux/api/productApi";
 
 const Products = () => {
   const { data, isError, isLoading, error } = useGetAllProductsQuery() || {};
 
-  console.log(data);
   return (
-    <div>
+    <div style={{ border: "solid 1px red" }}>
       <h4>Products</h4>
-      <div>
+      <div style={{ display: "flex", justifyItems: "center" }}>
         {isLoading ? (
           <p>Loading....</p>
         ) : isError ? (
