@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import Products from "../components/Products";
 const HomePage = () => {
   const user = useSelector((state) => state.auth?.userData);
 
@@ -12,6 +13,8 @@ const HomePage = () => {
       ) : (
         ""
       )}
+
+      <Products />
     </div>
   );
 };

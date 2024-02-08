@@ -2,11 +2,13 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentUser, userLogin } from "../../redux/slice/authSlice";
 import toast from "react-hot-toast";
-// import {useNa } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
+
 const Login = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.auth?.loading);
-  const user = useSelector((state) => state.auth?.userData);
+  // const user = useSelector((state) => state.auth?.userData);
 
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
@@ -21,13 +23,13 @@ const Login = () => {
     };
     const response = await dispatch(userLogin(loginData));
     const user = await dispatch(getCurrentUser());
-
+    navigate("/");
     if (user && response?.payload) {
       toast.success("login successfull ");
     }
   };
 
-  console.log("after login user info: ", user);
+  // console.log("after login user info: ", user);
   return (
     <div>
       Login

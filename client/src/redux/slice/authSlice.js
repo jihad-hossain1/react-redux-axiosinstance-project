@@ -23,7 +23,8 @@ export const createAccount = createAsyncThunk("register", async (data) => {
 export const userLogin = createAsyncThunk("login", async (data) => {
   try {
     const response = await axiosInstance.post("/users/login", data);
-    console.log(response?.data);
+    // console.log(response?.data);
+    toast.success("user login successfull");
     return response?.data?.data?.user;
   } catch (error) {
     toast.error(error?.response?.data?.message);
@@ -70,7 +71,7 @@ export const changePassword = createAsyncThunk(
 
 export const getCurrentUser = createAsyncThunk("getCurrentUser", async () => {
   const response = await axiosInstance.get("/users/current-user");
-  console.log("response from auth slice: ", response.data);
+  // console.log("response from auth slice: ", response.data);
   return response.data;
 });
 

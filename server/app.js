@@ -14,7 +14,7 @@ app.use(
 //   })
 // );
 
-// for only one origin link 
+// for only one origin link
 // app.use(
 //   cors({
 //     origin: process.env.CORS_ORIGIN,
@@ -30,7 +30,9 @@ app.use(cookieParser());
 
 // route importer
 const userRoute = require("./router/user.router");
+const productRoute = require("./router/product.router");
 
 app.use("/api/v1/users", userRoute);
+app.use("/api/v1/products", productRoute);
 
 module.exports = app;
